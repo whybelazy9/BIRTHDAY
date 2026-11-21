@@ -129,6 +129,21 @@ button:hover{background-position:100% 0;transform:translateY(-3px) scale(1.04)}b
 @keyframes fpf{to{translate:0 -7px}}
 .fp:before{content:"";position:absolute;top:-9px;left:50%;width:54px;height:18px;margin-left:-27px;background:#ffdca6bb;transform:rotate(-3deg)}
 .fp img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:2px}
+.pets{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.pet{position:absolute;top:-40px;animation:pfall linear infinite;opacity:.9}
+@keyframes pfall{0%{transform:translate(0,-40px) rotate(0)}50%{transform:translate(34px,55vh) rotate(180deg)}100%{transform:translate(-14px,112vh) rotate(360deg)}}
+.bqwrap{position:relative;z-index:2;width:min(84vw,340px);cursor:pointer;filter:drop-shadow(0 0 30px #ff5c9355) drop-shadow(0 18px 24px #0007)}
+.bqt{font:italic 600 clamp(26px,7vw,34px)/1.25 'Cormorant Garamond',serif;color:#fff;max-width:14em;text-shadow:0 0 24px #ff5c9388}
+.bqt b{background:linear-gradient(110deg,var(--gold),var(--rose));-webkit-background-clip:text;background-clip:text;color:transparent}
+#bqs .sway{transform-origin:150px 355px}
+#bqs.go .paper{animation:bpa .8s cubic-bezier(.3,1.4,.5,1) both}@keyframes bpa{from{opacity:0;transform:translateY(40px)}}
+#bqs.go .st path{stroke-dasharray:320;animation:bdr 1s ease-out both;animation-delay:var(--d)}@keyframes bdr{from{stroke-dashoffset:320}to{stroke-dashoffset:0}}
+#bqs.go .lf{animation:bgr .9s cubic-bezier(.3,1.5,.5,1) both;animation-delay:var(--d)}@keyframes bgr{from{transform:scale(0)}}
+#bqs.go .bl{animation:bbl 1s cubic-bezier(.3,1.7,.5,1) both;animation-delay:var(--d)}@keyframes bbl{from{transform:scale(0) rotate(-90deg)}}
+#bqs.go .bow{animation:bbw .8s cubic-bezier(.3,1.8,.5,1) 4.4s both;transform-origin:150px 272px}@keyframes bbw{from{transform:scale(0)}}
+#bqs .gy{fill:#fff}#bqs.go .gy{animation:btw 2s ease-in-out infinite alternate both;animation-delay:var(--d)}
+#bqs .spk{fill:var(--gold);opacity:0}#bqs.go .spk{animation:btw 1.6s ease-in-out infinite alternate;animation-delay:calc(4.5s + var(--d))}@keyframes btw{from{opacity:.1}to{opacity:1}}
+#bqs.go .sway{animation:bsw 4.5s ease-in-out 5s infinite alternate}@keyframes bsw{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
 </style></head><body>
 <canvas id="bg"></canvas><div class="moon"></div><div class="aur"><i></i><i></i><i></i></div><div id="prog"></div><canvas id="fx"></canvas><audio id="song" loop preload="auto"></audio><button id="mus" aria-label="music on/off">🎵</button>
 
@@ -237,6 +252,36 @@ button:hover{background-position:100% 0;transform:translateY(-3px) scale(1.04)}b
     <div class="ctr"><div class="hb">Happy Birthday</div><div class="pn"><span data-n></span></div><div class="hand">I love you to the moon and back 🌙</div></div>
   </div>
   <p id="final"></p><p class="hand" id="gift" style="font-size:30px"></p>
+  <button class="nx">One last surprise 💐</button>
+</section>
+
+<section class="scene">
+  <div class="pets" aria-hidden="true"><span class="pet" style="left:12%;animation-duration:13s;animation-delay:-8s;font-size:23px">🌺</span><span class="pet" style="left:59%;animation-duration:13s;animation-delay:-9s;font-size:17px">🌸</span><span class="pet" style="left:67%;animation-duration:15s;animation-delay:-2s;font-size:21px">🌷</span><span class="pet" style="left:64%;animation-duration:15s;animation-delay:-0s;font-size:26px">🌸</span><span class="pet" style="left:73%;animation-duration:14s;animation-delay:-5s;font-size:21px">💮</span><span class="pet" style="left:76%;animation-duration:16s;animation-delay:-1s;font-size:17px">🌺</span><span class="pet" style="left:62%;animation-duration:10s;animation-delay:-0s;font-size:20px">💮</span><span class="pet" style="left:38%;animation-duration:15s;animation-delay:-14s;font-size:26px">🌺</span><span class="pet" style="left:4%;animation-duration:16s;animation-delay:-5s;font-size:18px">🌸</span><span class="pet" style="left:65%;animation-duration:9s;animation-delay:-3s;font-size:20px">🌷</span><span class="pet" style="left:33%;animation-duration:15s;animation-delay:-6s;font-size:23px">🌸</span><span class="pet" style="left:23%;animation-duration:16s;animation-delay:-6s;font-size:24px">🌺</span><span class="pet" style="left:19%;animation-duration:15s;animation-delay:-13s;font-size:24px">🌺</span><span class="pet" style="left:92%;animation-duration:15s;animation-delay:-5s;font-size:26px">💮</span></div>
+  <p class="hand">psst… one last surprise 💌</p>
+  <h1>Happy Birthday,<br><span data-n></span> 💖</h1>
+  <div class="bqwrap" id="bqw"><svg id="bqs" viewBox="0 0 300 380" width="100%" role="img" aria-label="animated bouquet of flowers">
+<defs>
+<linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd3e2"/><stop offset="1" stop-color="#ff8fb4"/></linearGradient>
+<linearGradient id="pg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff5f9"/><stop offset="1" stop-color="#ffbfd6"/></linearGradient>
+<linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe9b0"/><stop offset="1" stop-color="#ffb85c"/></linearGradient>
+<g id="daisy"><g fill="currentColor"><ellipse cy="-17" rx="9" ry="17"/><ellipse cy="-17" rx="9" ry="17" transform="rotate(45)"/><ellipse cy="-17" rx="9" ry="17" transform="rotate(90)"/><ellipse cy="-17" rx="9" ry="17" transform="rotate(135)"/><ellipse cy="-17" rx="9" ry="17" transform="rotate(180)"/><ellipse cy="-17" rx="9" ry="17" transform="rotate(225)"/><ellipse cy="-17" rx="9" ry="17" transform="rotate(270)"/><ellipse cy="-17" rx="9" ry="17" transform="rotate(315)"/></g><circle r="9" fill="#ffd36b"/><circle r="4" fill="#ff9f43"/></g>
+<g id="bloom"><g fill="currentColor"><circle cy="-14" r="13"/><circle cx="13.3" cy="-4.3" r="13"/><circle cx="8.2" cy="11.3" r="13"/><circle cx="-8.2" cy="11.3" r="13"/><circle cx="-13.3" cy="-4.3" r="13"/></g><circle r="8" fill="#ffe9b0"/><circle r="3" fill="#ff9f43"/></g>
+<g id="rose"><circle r="22" fill="currentColor"/><circle r="22" fill="none" stroke="#00000022" stroke-width="2"/><path d="M-13,-5 Q0,-20 13,-5 Q10,13 -8,12 Q-18,2 -4,-6 Q6,-9 8,2" fill="none" stroke="#ffffffaa" stroke-width="3" stroke-linecap="round"/><path d="M-6,4 Q0,9 6,4" fill="none" stroke="#00000030" stroke-width="2" stroke-linecap="round"/></g>
+</defs>
+<g class="sway">
+<g class="st" fill="none" stroke="#3fae7a" stroke-width="4" stroke-linecap="round"><path d="M150,262 Q150,177 150,92" style="--d:1.00s"/><path d="M150,262 Q137,194 98,125" style="--d:1.15s"/><path d="M150,262 Q164,192 205,122" style="--d:1.30s"/><path d="M150,262 Q128,218 62,175" style="--d:1.45s"/><path d="M150,262 Q172,217 240,172" style="--d:1.60s"/><path d="M150,262 Q143,215 122,168" style="--d:1.75s"/><path d="M150,262 Q158,214 180,165" style="--d:1.90s"/><path d="M150,262 Q150,235 150,208" style="--d:2.05s"/></g>
+<g transform="translate(120,205) rotate(-170) scale(1.2)"><path class="lf" style="--d:1.40s;fill:#52c796" d="M0,0 C18,-14 40,-14 58,0 C40,14 18,14 0,0Z"/></g><g transform="translate(180,205) rotate(-10) scale(1.2)"><path class="lf" style="--d:1.52s;fill:#3fae7a" d="M0,0 C18,-14 40,-14 58,0 C40,14 18,14 0,0Z"/></g><g transform="translate(112,175) rotate(-150) scale(1.1)"><path class="lf" style="--d:1.64s;fill:#52c796" d="M0,0 C18,-14 40,-14 58,0 C40,14 18,14 0,0Z"/></g><g transform="translate(188,175) rotate(-30) scale(1.1)"><path class="lf" style="--d:1.76s;fill:#3fae7a" d="M0,0 C18,-14 40,-14 58,0 C40,14 18,14 0,0Z"/></g><g transform="translate(138,230) rotate(-125) scale(1.3)"><path class="lf" style="--d:1.88s;fill:#52c796" d="M0,0 C18,-14 40,-14 58,0 C40,14 18,14 0,0Z"/></g><g transform="translate(162,230) rotate(-55) scale(1.3)"><path class="lf" style="--d:2.00s;fill:#3fae7a" d="M0,0 C18,-14 40,-14 58,0 C40,14 18,14 0,0Z"/></g><g transform="translate(130,150) rotate(-115) scale(0.9)"><path class="lf" style="--d:2.12s;fill:#52c796" d="M0,0 C18,-14 40,-14 58,0 C40,14 18,14 0,0Z"/></g><g transform="translate(170,150) rotate(-65) scale(0.9)"><path class="lf" style="--d:2.24s;fill:#3fae7a" d="M0,0 C18,-14 40,-14 58,0 C40,14 18,14 0,0Z"/></g>
+<circle cx="132" cy="98" r="2.5" class="gy" style="--d:4.98s"/><circle cx="68" cy="197" r="2" class="gy" style="--d:4.55s"/><circle cx="64" cy="189" r="2" class="gy" style="--d:4.06s"/><circle cx="161" cy="167" r="2" class="gy" style="--d:4.36s"/><circle cx="191" cy="168" r="2" class="gy" style="--d:5.24s"/><circle cx="81" cy="117" r="3" class="gy" style="--d:4.94s"/><circle cx="65" cy="207" r="3" class="gy" style="--d:4.60s"/><circle cx="106" cy="71" r="3" class="gy" style="--d:5.29s"/><circle cx="124" cy="167" r="2" class="gy" style="--d:4.81s"/><circle cx="196" cy="138" r="3" class="gy" style="--d:5.22s"/><circle cx="96" cy="86" r="3" class="gy" style="--d:4.86s"/><circle cx="98" cy="155" r="2" class="gy" style="--d:4.82s"/><circle cx="66" cy="204" r="2" class="gy" style="--d:4.93s"/><circle cx="177" cy="196" r="2.5" class="gy" style="--d:5.17s"/><circle cx="169" cy="209" r="2.5" class="gy" style="--d:4.54s"/><circle cx="113" cy="106" r="3" class="gy" style="--d:5.17s"/>
+<g transform="translate(150,92)"><g class="bl" style="--d:2.0s;color:#ff5c93"><g transform="scale(1.5)"><use href="#rose"/></g></g></g><g transform="translate(98,125)"><g class="bl" style="--d:2.3s;color:#fff4f8"><g transform="scale(1.15)"><use href="#daisy"/></g></g></g><g transform="translate(205,122)"><g class="bl" style="--d:2.6s;color:#ffb3cd"><g transform="scale(1.3)"><use href="#bloom"/></g></g></g><g transform="translate(62,175)"><g class="bl" style="--d:2.9s;color:#ff8fb4"><g transform="scale(1.25)"><use href="#rose"/></g></g></g><g transform="translate(240,172)"><g class="bl" style="--d:3.2s;color:#ffc6a0"><g transform="scale(1.2)"><use href="#daisy"/></g></g></g><g transform="translate(122,168)"><g class="bl" style="--d:3.5s;color:#c4b0ff"><g transform="scale(1.15)"><use href="#bloom"/></g></g></g><g transform="translate(180,165)"><g class="bl" style="--d:3.8s;color:#ff6f9f"><g transform="scale(1.25)"><use href="#rose"/></g></g></g><g transform="translate(150,208)"><g class="bl" style="--d:4.1s;color:#ffd0e0"><g transform="scale(1.0)"><use href="#bloom"/></g></g></g>
+<g class="paper"><path d="M58,200 L242,200 L176,352 Q150,362 124,352 Z" fill="url(#pg)"/><path d="M58,200 Q150,276 242,200 L176,352 Q150,362 124,352 Z" fill="url(#pg2)"/><path d="M58,200 Q150,276 242,200" fill="none" stroke="#ffffff99" stroke-width="2"/><path d="M150,282 L150,352" stroke="#ff8fb455" stroke-width="2" fill="none"/>
+<text x="118" y="312" font-size="16" fill="#ff5c9388">♥</text><text x="168" y="326" font-size="13" fill="#ff5c9388">♥</text><text x="140" y="338" font-size="11" fill="#ff5c9388">♥</text></g>
+<g class="bow"><path d="M150,270 C112,236 90,262 110,282 C124,294 144,280 150,270Z" fill="url(#gd)"/><path d="M150,270 C188,236 210,262 190,282 C176,294 156,280 150,270Z" fill="url(#gd)"/><path d="M146,276 L128,318 L142,312 L148,326 L154,282Z" fill="#ffb85c"/><path d="M154,276 L172,318 L158,312 L152,326 L146,282Z" fill="#ffd27a"/><circle cx="150" cy="272" r="9" fill="#ffc76a"/><circle cx="147" cy="269" r="3" fill="#fff6" /></g>
+</g>
+<text x="30" y="70" class="spk" style="--d:0s" font-size="18">✦</text><text x="262" y="60" class="spk" style="--d:0.7s" font-size="22">✦</text><text x="20" y="190" class="spk" style="--d:1.3s" font-size="14">✦</text><text x="274" y="200" class="spk" style="--d:0.4s" font-size="16">✦</text><text x="150" y="30" class="spk" style="--d:1.0s" font-size="20">✦</text><text x="46" y="300" class="spk" style="--d:1.8s" font-size="14">✦</text><text x="258" y="290" class="spk" style="--d:0.9s" font-size="16">✦</text>
+</svg></div>
+  <p class="hand" style="font-size:20px;margin-top:-8px">(tap the bouquet 💕)</p>
+  <p class="bqt">For the end… there is a <b>bouquet</b> coming for you 💐</p>
+  <p>Real flowers, from me to you. Very soon. Wait for it, birthday girl 🌷</p>
   <button id="again">Play again</button>
 </section>
 
@@ -302,7 +347,7 @@ gift:"Your real surprise: [might take sm time its not ready yet] 🎁"};
 /* =========================== */
 const $=s=>document.querySelector(s),S=[...document.querySelectorAll('.scene')];let cur=0;
 document.querySelectorAll('[data-n]').forEach(e=>e.textContent=C.name);
-const go=i=>{S[cur].classList.remove('on');cur=i;S[i].classList.add('on');scrollTo(0,0);$('#prog').style.width=i/(S.length-1)*100+'%';if(i==1)game();if(i==2)requestAnimationFrame(()=>(window.SI||[]).splice(0).forEach(f=>f()));if(i==7)scrap();if(i==8)col();if(i==9)flirt();if(i==11)end()};
+const go=i=>{S[cur].classList.remove('on');cur=i;S[i].classList.add('on');scrollTo(0,0);$('#prog').style.width=i/(S.length-1)*100+'%';if(i==1)game();if(i==2)requestAnimationFrame(()=>(window.SI||[]).splice(0).forEach(f=>f()));if(i==7)scrap();if(i==8)col();if(i==9)flirt();if(i==11)end();if(i==12)bq()};
 document.querySelectorAll('.nx').forEach(b=>b.onclick=()=>go(cur+1));
 const done=id=>{$(id).classList.remove('hide');boom(90)};
 /* confetti */
@@ -411,4 +456,7 @@ let fnI=0;
 function fin(){if(fnI)return;fnI=1;const F=$('#fin'),P=[[3,1.2,-7,'40% 40%'],[34.5,0,3,'50% 30%'],[67,1.4,7,'25% 40%'],[3,72,6,'20% 40%'],[34.5,73.5,-4,'35% 40%'],[67,72,-7,'50% 40%']];
 SB.forEach((s,i)=>{const e=document.createElement('div');e.className='fp';e.style.cssText='left:'+P[i][0]+'%;top:'+P[i][1]+'%;width:31%';e.style.setProperty('--r',P[i][2]+'deg');e.style.setProperty('--d',(i*.4)+'s');e.innerHTML='<img alt="" src="'+s[0]+'" style="object-position:'+P[i][3]+'">';e.onclick=()=>{$('#lb img').src=s[0];$('#lb').classList.add('on')};F.append(e);setTimeout(()=>{e.classList.add('in');const r=e.getBoundingClientRect();boom(12,r.x+r.width/2,r.y+r.height/2)},700+i*380)})}
 function end(){$('#final').textContent=C.final;$('#gift').textContent=C.gift;boom(200);setTimeout(()=>boom(140,innerWidth*.2,innerHeight*.6),700);setTimeout(()=>boom(140,innerWidth*.8,innerHeight*.6),1300);fin()}
+
+function bq(){const s=$('#bqs');s.classList.remove('go');void s.getBoundingClientRect();s.classList.add('go');[900,2200,3400,4600].forEach(t=>setTimeout(()=>{if(cur===12)boom(45,innerWidth/2,innerHeight*.45)},t))}
+$('#bqw').onclick=()=>{bq();boom(70,innerWidth/2,innerHeight*.45)};
 </script></body></html>
